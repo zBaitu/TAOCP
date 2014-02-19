@@ -1,0 +1,41 @@
+[TEST_SUITE test_e2]
+
+[TEST_BODY]
+    STB num,actual_9B
+    [ASSERT_BYTE_EQ actual_9B,expected_9B]
+[TEST_BODY_END]
+
+[TEST_CASE 1]
+9H          IS 9B+1
+num         GREG 9B
+actual_9B   BYTE
+expected_9B BYTE 1
+[TEST_CASE_END]
+
+[TEST_CASE 2]
+9H          IS 0
+9H          IS 9B+1
+9H          IS 9B+1
+num         GREG 9B
+actual_9B   BYTE
+expected_9B BYTE 2
+[TEST_CASE_END]
+
+[TEST_CASE 10]
+9H          IS 0
+9H          IS 9B+1
+9H          IS 9B+1
+9H          IS 9B+1
+9H          IS 9B+1
+9H          IS 9B+1
+9H          IS 9B+1
+9H          IS 9B+1
+9H          IS 9B+1
+9H          IS 9B+1
+9H          IS 9B+1
+num         GREG 9B
+actual_9B   BYTE
+expected_9B BYTE 10
+[TEST_CASE_END]
+
+[TEST_SUITE_END]
