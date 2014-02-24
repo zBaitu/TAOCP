@@ -1,0 +1,26 @@
+[TEST_SUITE test_e6_eq]
+
+[TEST_BODY]
+    [ASSERT_OCTA_EQ left,right]
+[TEST_BODY_END]
+
+[TEST_CASE eq]
+left    OCTA 1,2
+right   OCTA 1; OCTA 2
+[TEST_CASE_END]
+
+[TEST_SUITE_END]
+
+
+[TEST_SUITE test_e6_ne]
+
+[TEST_BODY]
+    [ASSERT_OCTA_NE left,right]
+[TEST_BODY_END]
+
+[TEST_CASE ne]
+left    OCTA @,@
+right   OCTA @; OCTA @
+[TEST_CASE_END]
+
+[TEST_SUITE_END]
