@@ -1,0 +1,60 @@
+[TEST_TARGET e17_ori]
+
+[TEST_SUITE test_e17_ori_OK]
+
+[TEST_BODY]
+    LDA     $1,instruction
+    PUSHJ   $0,:InstTest
+    STO     $0,actual
+    [ASSERT_OCTA_LE actual,expected]
+[TEST_BODY_END]
+
+[TEST_CASE TRAP_OK]
+instruction TETRA   #00000000
+actual      OCTA
+expected    OCTA    0
+[TEST_CASE_END]
+
+[TEST_CASE FIX_OK]
+instruction TETRA   #05000400
+actual      OCTA
+expected    OCTA    0
+[TEST_CASE_END]
+
+[TEST_CASE PUT_OK]
+instruction TETRA   #fe070000
+actual      OCTA
+expected    OCTA    0
+[TEST_CASE_END]
+
+[TEST_SUITE_END]
+
+
+[TEST_SUITE test_e17_ori_NG]
+
+[TEST_BODY]
+    LDA     $1,instruction
+    PUSHJ   $0,:InstTest
+    STO     $0,actual
+    [ASSERT_OCTA_GE actual,expected]
+[TEST_BODY_END]
+
+[TEST_CASE LDVTS_NG]
+instruction TETRA   #98000000
+actual      OCTA
+expected    OCTA    0
+[TEST_CASE_END]
+
+[TEST_CASE PUT_NG]
+instruction TETRA   #fe080000
+actual      OCTA
+expected    OCTA    0
+[TEST_CASE_END]
+
+[TEST_CASE FIX_NG]
+instruction TETRA   #05000500
+actual      OCTA
+expected    OCTA    0
+[TEST_CASE_END]
+
+[TEST_SUITE_END]

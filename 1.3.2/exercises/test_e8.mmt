@@ -1,0 +1,22 @@
+[TEST_SUITE test_e8]
+
+[TEST_BODY]
+    STO     not_fix_addr,not_fix_value
+    STO     fix_addr,fix_value
+    [ASSERT_OCTA_EQ not_fix_value,not_fix_expected]
+    [ASSERT_OCTA_EQ fix_value,fix_expected]
+[TEST_BODY_END]
+
+[TEST_CASE multiple_of_16]
+                    LOC     #2100000000000000
+tmp                 BYTE    0,0
+not_fix_addr        GREG    @
+                    LOC     (@+15)&-16
+fix_addr            GREG    @
+not_fix_value       OCTA
+not_fix_expected    OCTA    #2100000000000002
+fix_value           OCTA
+fix_expected        OCTA    #2100000000000010
+[TEST_CASE_END]
+
+[TEST_SUITE_END]

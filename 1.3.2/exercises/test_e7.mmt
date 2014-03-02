@@ -1,0 +1,17 @@
+[TEST_SUITE test_e7]
+
+[TEST_BODY]
+cur GETA    addr,@+1    
+    STO     addr,left
+    GETA    addr,cur
+    STO     addr,right
+    [ASSERT_OCTA_EQ left,right]
+[TEST_BODY_END]
+
+[TEST_CASE tetra_align]
+addr    GREG
+left    OCTA
+right   OCTA
+[TEST_CASE_END]
+
+[TEST_SUITE_END]
