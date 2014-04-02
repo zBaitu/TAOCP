@@ -1,0 +1,82 @@
+[TEST_TARGET e18_ori_2]
+
+[TEST_SUITE test_e18_ori_2]
+
+[TEST_BODY]
+    LDA     $1,a00
+    LDA     $2,a10
+    LDO     $3,a20
+    PUSHJ   $0,:Saddle
+    STO     $0,actual
+    [ASSERT_OCTA_EQ actual,expected]
+[TEST_BODY_END]
+
+[TEST_CASE YES_9_8]
+a00         OCTA
+a10         BYTE
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 2,2,2,2,2,2,2,1
+a20         OCTA a10+8
+actual      OCTA
+expected    OCTA a10+72
+[TEST_CASE_END]
+
+[TEST_CASE YES_9_1]
+a00         OCTA
+a10         BYTE
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+a20         OCTA a10+8
+actual      OCTA
+expected    OCTA a10+65
+[TEST_CASE_END]
+
+[TEST_CASE YES_1_1]
+a00         OCTA
+a10         BYTE
+            BYTE 1,9,9,9,9,9,9,9
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+a20         OCTA a10+8
+actual      OCTA
+expected    OCTA a10+1
+[TEST_CASE_END]
+
+[TEST_CASE NO]
+a00         OCTA
+a10         BYTE
+            BYTE 1,9,9,9,9,9,9,9
+            BYTE 2,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0
+a20         OCTA a10+8
+actual      OCTA
+expected    OCTA 0
+[TEST_CASE_END]
+
+[TEST_SUITE_END]
