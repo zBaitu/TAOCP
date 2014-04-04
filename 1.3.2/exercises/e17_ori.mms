@@ -26,6 +26,7 @@ table       GREG    @
             TETRA   a,a,a,a,a,a,c,c,a,d,e,f,g,a,h,a     Fx
 tetra       IS      $1
 maxXYZ      IS      $2
+
 :InstTest   BN      $0,9F
             LDTU    tetra,$0,0
             SR      $0,tetra,22

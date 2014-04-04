@@ -1,0 +1,104 @@
+[TEST_TARGET e23_ori]
+
+[TEST_SUITE test_e23_ori]
+
+[TEST_BODY]
+    LDA     $1,actual
+    LDO     $2,n
+    PUSHJ   $0,:Zero
+    [ASSERT_BYTE_ARRAY_EQ actual,expected,n]
+[TEST_BODY_END]
+
+[TEST_CASE 0_byte]
+actual      BYTE 1
+expected    BYTE 1
+n           OCTA 0
+[TEST_CASE_END]
+
+[TEST_CASE 1_byte]
+actual      BYTE 1
+expected    BYTE 0
+n           OCTA 1
+[TEST_CASE_END]
+
+[TEST_CASE 4_byte]
+actual      BYTE 1,2,3,4
+expected    BYTE 0,0,0,0
+n           OCTA 4
+[TEST_CASE_END]
+
+[TEST_CASE 7_byte]
+actual      BYTE 1,2,3,4,5,6,7
+expected    BYTE 0,0,0,0,0,0,0
+n           OCTA 7
+[TEST_CASE_END]
+
+[TEST_CASE 8_byte]
+actual      BYTE 1,2,3,4,5,6,7,8
+expected    BYTE 0,0,0,0,0,0,0,0
+n           OCTA 8
+[TEST_CASE_END]
+
+[TEST_CASE 9_byte]
+actual      BYTE 1,2,3,4,5,6,7,8,9
+expected    BYTE 0,0,0,0,0,0,0,0,0
+n           OCTA 9
+[TEST_CASE_END]
+
+[TEST_CASE 15_byte]
+actual      BYTE 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+expected    BYTE 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+n           OCTA 15
+[TEST_CASE_END]
+
+[TEST_CASE 16_byte]
+actual      BYTE 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+expected    BYTE 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+n           OCTA 16
+[TEST_CASE_END]
+
+[TEST_CASE 17_byte]
+actual      BYTE 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17
+expected    BYTE 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+n           OCTA 17
+[TEST_CASE_END]
+
+[TEST_CASE 63_byte]
+actual      BYTE 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+            BYTE 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+            BYTE 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+            BYTE 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+expected    BYTE 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+n           OCTA 63
+[TEST_CASE_END]
+
+[TEST_CASE 64_byte]
+actual      BYTE 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+            BYTE 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+            BYTE 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+            BYTE 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+expected    BYTE 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+n           OCTA 64
+[TEST_CASE_END]
+
+[TEST_CASE 65_byte]
+actual      BYTE 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+            BYTE 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+            BYTE 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+            BYTE 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+            BYTE 1
+expected    BYTE 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            BYTE 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            BYTE 0
+n           OCTA 65
+[TEST_CASE_END]
+
+[TEST_SUITE_END]
