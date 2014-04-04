@@ -1,0 +1,127 @@
+[TEST_TARGET e24_ori]
+
+[TEST_SUITE test_e24_ori]
+
+[TEST_BODY]
+    LDA     $1,in
+    LDA     $2,out
+    PUSHJ   $0,:StrCpy
+    [ASSERT_STR_EQ out,expected]
+[TEST_BODY_END]
+
+[TEST_CASE 0_len]
+in          BYTE 0
+out         BYTE 1
+expected    BYTE 0
+[TEST_CASE_END]
+
+[TEST_CASE 1_len]
+in          BYTE "a",0
+out         BYTE 0,0
+expected    BYTE "a",0
+[TEST_CASE_END]
+
+[TEST_CASE 4_len]
+in          BYTE "abcd",0
+out         OCTA
+expected    BYTE "abcd",0
+[TEST_CASE_END]
+
+[TEST_CASE 7_len]
+in          BYTE "abcdefg",0
+out         OCTA
+expected    BYTE "abcdefg",0
+[TEST_CASE_END]
+
+[TEST_CASE 8_len]
+in          BYTE "abcdefgh",0
+out         OCTA
+            BYTE
+expected    BYTE "abcdefgh",0
+[TEST_CASE_END]
+
+[TEST_CASE 63_len]
+in          BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefg",0
+out         OCTA
+            OCTA
+            OCTA
+            OCTA
+            OCTA
+            OCTA
+            OCTA
+            OCTA
+expected    BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefg",0
+[TEST_CASE_END]
+
+[TEST_CASE 64_len]
+in          BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh",0
+out         OCTA
+            OCTA
+            OCTA
+            OCTA
+            OCTA
+            OCTA
+            OCTA
+            OCTA
+            BYTE
+expected    BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh",0
+[TEST_CASE_END]
+
+[TEST_CASE 65_len]
+in          BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefghi",0
+out         OCTA
+            OCTA
+            OCTA
+            OCTA
+            OCTA
+            OCTA
+            OCTA
+            OCTA
+            BYTE
+            BYTE
+expected    BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefgh"
+            BYTE "abcdefghi",0
+[TEST_CASE_END]
+
+[TEST_SUITE_END]
