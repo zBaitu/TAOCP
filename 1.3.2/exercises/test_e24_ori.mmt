@@ -23,7 +23,8 @@ expected    BYTE "a",0
 
 [TEST_CASE 4_len]
 in          BYTE "abcd",0
-out         OCTA
+out         TETRA
+            BYTE
 expected    BYTE "abcd",0
 [TEST_CASE_END]
 
@@ -112,8 +113,7 @@ out         OCTA
             OCTA
             OCTA
             OCTA
-            BYTE
-            BYTE
+            WYDE
 expected    BYTE "abcdefgh"
             BYTE "abcdefgh"
             BYTE "abcdefgh"
