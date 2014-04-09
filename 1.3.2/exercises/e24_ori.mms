@@ -56,7 +56,7 @@ ones GREG #0101010101010101
         STOU out,$0,$1
 5H      INCL $0,8
         SLU  out,in,l
-        SLU  mm,t,l  
+        SLU  mm,t,l
 1H      LDOU in,$0,$1
         MOR  mm,mm,flip
         SUBU t,mm,1

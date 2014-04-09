@@ -73,7 +73,7 @@ ones   GREG #0101010101010101
 4H     LDO  c,freq,p
        LDO  cc,freqq,p
        ADD  c,c,cc
-       STO  c,freq,p  
+       STO  c,freq,p
        SUB  p,p,8
        PBP  p,4B
        POP
