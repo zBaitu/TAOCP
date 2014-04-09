@@ -70,8 +70,6 @@ n           OCTA 256
 
 [TEST_CASE ab_3]
             LOC (@+7)&-8
-count       GREG @
-            LOC @+8*(1<<16)
 freq        GREG @
             LOC @+8*(1<<8)
 freqq       GREG @
@@ -101,8 +99,6 @@ n           OCTA 256
 
 [TEST_CASE AB_3]
             LOC (@+7)&-8
-count       GREG @
-            LOC @+8*(1<<16)
 freq        GREG @
             LOC @+8*(1<<8)
 freqq       GREG @
@@ -132,8 +128,6 @@ n           OCTA 256
 
 [TEST_CASE a_z]
             LOC (@+7)&-8
-count       GREG @
-            LOC @+8*(1<<16)
 freq        GREG @
             LOC @+8*(1<<8)
 freqq       GREG @
@@ -163,8 +157,6 @@ n           OCTA 256
 
 [TEST_CASE A_Z]
             LOC (@+7)&-8
-count       GREG @
-            LOC @+8*(1<<16)
 freq        GREG @
             LOC @+8*(1<<8)
 freqq       GREG @
@@ -189,6 +181,35 @@ expected    OCTA 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
             LOC (@+7)&-8
 ciphertext  GREG @
             BYTE "ABCDEFGHIJKLMNOPQRSTUVWXYZ",0
+n           OCTA 256
+[TEST_CASE_END]
+
+[TEST_CASE 0_9]
+            LOC (@+7)&-8
+freq        GREG @
+            LOC @+8*(1<<8)
+freqq       GREG @
+            LOC @+8*(1<<8)
+            GREG @
+expected    OCTA 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            OCTA 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            OCTA 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            OCTA 1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0
+            OCTA 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            OCTA 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            OCTA 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            OCTA 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            OCTA 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            OCTA 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            OCTA 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            OCTA 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            OCTA 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            OCTA 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            OCTA 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            OCTA 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            LOC (@+7)&-8
+ciphertext  GREG @
+            BYTE "0123456789",0
 n           OCTA 256
 [TEST_CASE_END]
 
