@@ -1,0 +1,83 @@
+[TEST_TARGET e30_ori]
+
+[TEST_SUITE test_e30_ori]
+
+[TEST_BODY]
+    LDO     $1,n
+    SET     $2,dec
+    PUSHJ   $0,:Harmonic
+    [ASSERT_STR_EQ actual,expected]
+[TEST_BODY_END]
+
+[TEST_CASE n_1]
+n               OCTA 1
+                LOC (@+7)&-8
+dec             GREG @+2
+actual          BYTE "  . ",#a,0
+expected        BYTE " 3.7",#a,0
+[TEST_CASE_END]
+
+[TEST_CASE n_2]
+n               OCTA 2
+dec             GREG @+2
+actual          BYTE "  .  ",#a,0
+expected        BYTE " 6.13",#a,0
+[TEST_CASE_END]
+
+[TEST_CASE n_3]
+n               OCTA 3
+dec             GREG @+2
+actual          BYTE "  .   ",#a,0
+expected        BYTE " 8.445",#a,0
+[TEST_CASE_END]
+
+[TEST_CASE n_4]
+n               OCTA 4
+dec             GREG @+2
+actual          BYTE "  .    ",#a,0
+expected        BYTE "10.7504",#a,0
+[TEST_CASE_END]
+
+[TEST_CASE n_5]
+n               OCTA 5
+dec             GREG @+2
+actual          BYTE "  .     ",#a,0
+expected        BYTE "13.05357",#a,0
+[TEST_CASE_END]
+
+[TEST_CASE n_6]
+n               OCTA 6
+dec             GREG @+2
+actual          BYTE "  .      ",#a,0
+expected        BYTE "15.356255",#a,0
+[TEST_CASE_END]
+
+[TEST_CASE n_7]
+n               OCTA 7
+dec             GREG @+2
+actual          BYTE "  .       ",#a,0
+expected        BYTE "17.6588268",#a,0
+[TEST_CASE_END]
+
+[TEST_CASE n_8]
+n               OCTA 8
+dec             GREG @+2
+actual          BYTE "  .        ",#a,0
+expected        BYTE "19.96140681",#a,0
+[TEST_CASE_END]
+
+[TEST_CASE n_9]
+n               OCTA 9
+dec             GREG @+2
+actual          BYTE "  .         ",#a,0
+expected        BYTE "22.263991769",#a,0
+[TEST_CASE_END]
+
+[TEST_CASE n_10]
+n               OCTA 10
+dec             GREG @+2
+actual          BYTE "  .          ",#a,0
+expected        BYTE "24.5665766342",#a,0
+[TEST_CASE_END]
+
+[TEST_SUITE_END]
